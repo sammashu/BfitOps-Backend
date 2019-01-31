@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package event;
+option go_package="eventpb";
+
+message Eventing {
+    string event_name = 1;
+    string description = 2;
+
+}
+
+message EventRequest {
+    Eventing eventing = 1;
+}
+
+message EventResponse {
+    string result = 1;
+}
+
+service EventService{
+    rpc Event(EventRequest) returns (EventResponse) {};
+}
